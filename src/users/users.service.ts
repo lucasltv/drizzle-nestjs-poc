@@ -10,11 +10,28 @@ export class UsersService {
   ) {}
 
   async findAll() {
-    return this.conn.query.users.findMany();
-    // return this.conn.query.users.findMany({
-    //   with: {
-    //     user_role: true,
-    //   },
-    // });
+    return this.conn.query.users.findMany({
+      columns: {
+        id: true,
+        name: true,
+      },
+      with: {
+        posts: {
+          with: {
+            comments: {
+              columns: {
+                id: true,
+                text: true,
+                createdAt: true,
+              },
+            },
+          },
+          columns: {
+            id: true,
+            title: true,
+          },
+        },
+      },
+    });
   }
 }

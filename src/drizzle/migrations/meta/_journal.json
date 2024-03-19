@@ -1,0 +1,27 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1710810303408,
+      "tag": "0000_tiresome_red_ghost",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1710811235017,
+      "tag": "0001_icy_ogun",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1710811282357,
+      "tag": "0002_large_nightcrawler",
+      "breakpoints": true
+    }
+  ]
+}
