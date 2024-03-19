@@ -11,10 +11,12 @@ import * as schema from './schema';
       provide: PG_CONNECTION,
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
-        const connectionString = configService.get<string>('DATABASE_URL');
         const pool = new Pool({
-          connectionString,
-          ssl: false,
+          connectionString: configService.get<string>('DATABASE_URL'),
+          ssl:
+            configService.get<string>('NODE_ENV') === 'development'
+              ? false
+              : true,
         });
 
         return drizzle(pool, { schema });
